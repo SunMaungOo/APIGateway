@@ -1,0 +1,6 @@
+.vscode/*
+Pipfile
+src/gateway/.env
+src/gateway/__pycache__/*
+src/api/.env
+src/api/__pycache__/*

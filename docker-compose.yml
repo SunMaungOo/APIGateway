@@ -1,0 +1,29 @@
+version : "3.7"
+
+services:
+    api-gateway:
+        image: api-gateway
+        build:
+            context: ./src/gateway
+            dockerfile: Dockerfile
+        ports:
+            - 5000:5000
+        environment:
+            SERVER_PORT: 5000
+            API_PORT: 5001
+            API_KEY: test123
+            API_PATH: api
+            API_NAME: api
+            IS_DOCKER: "True"
+    api:
+        image: api
+        build:
+            context: ./src/api
+            dockerfile: Dockerfile
+        ports:
+            - 5001:5001
+        environment:
+            SERVER_PORT: 5001
+            WHITE_LIST_SERVICE_NAME: api-gateway
+            IS_DOCKER: "True"
+
